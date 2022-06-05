@@ -1,5 +1,4 @@
 import express from 'express';
-import sha256 from 'sha256';
 import cors from 'cors';
 import usersRouter from './routers/users.js'
 
