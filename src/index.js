@@ -30,7 +30,7 @@ app.use((error, req, res, next) => {
         message: 'InternalServerError'
     })
 
-    process.exit()
+    process.exit();
 })
 
 app.listen(PORT, () => console.log(`server listening on http://localhost:${PORT}`)); 
