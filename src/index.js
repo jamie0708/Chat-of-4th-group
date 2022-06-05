@@ -1,7 +1,9 @@
 import express from 'express';
+import sha256 from 'sha256';
+import cors from 'cors';
 
 const PORT = process.env.PORT || 7777;
-const app = express();
+const app = express()
 
 app.use(express.json());
 app.use(cors());
@@ -24,7 +26,7 @@ app.use((error, req, res, next) => {
     })
 
     process.exit()
-
 })
+console.log(sha256("12345678"));
 
 app.listen(PORT, () => console.log(`server listening on ${PORT}`)); 
