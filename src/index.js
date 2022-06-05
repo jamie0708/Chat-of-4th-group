@@ -1,13 +1,16 @@
 import express from 'express';
 import sha256 from 'sha256';
 import cors from 'cors';
+import usersRouter from './routers/users.js'
 
 const PORT = process.env.PORT || 7777;
 const app = express()
 
 app.use(express.json());
-app.use(cors());
-app.use(express.static('public'));
+// app.use(cors());
+// app.use(express.static('public'));
+
+app.use(usersRouter)
 
 
 app.use((error, req, res, next) => {

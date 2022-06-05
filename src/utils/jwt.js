@@ -1,5 +1,5 @@
 import JWT from 'jsonwebtoken'
-let secret = 'maxfiy-malumot'
+let secret = 'secret'
 
 export default {
     sign: (payload) => JWT.sign(payload, secret),
