@@ -47,7 +47,7 @@ const REGISTER = (req, res) => {
         let {first_name, email, password, avatar} = req.body
         let users = read('users')
         
-        req.body.userId = users.length ? users.at(-1).userId + 1 : 1
+        req.body.id = users.length ? users.at(-1).id + 1 : 1
         password = sha256(password)
 
         let user = users.find(user => user.first_name == first_name)
@@ -70,7 +70,6 @@ const REGISTER = (req, res) => {
         return next( new InternalServerError(500, error.message) )
     }
 }
-
 
 export default {
     GET,

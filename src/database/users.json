@@ -1,4 +1,5 @@
-[{
+[
+    {
         "id": 1,
         "email": "george.bluth@reqres.in",
         "first_name": "George",
@@ -39,5 +40,12 @@
         "first_name": "Tracey",
         "password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
         "avatar": "https://reqres.in/img/faces/6-image.jpg"
+    },
+    {
+        "first_name": "Al-Aziz",
+        "password": "12345678",
+        "avatar": "bla bla bla",
+        "email": "aziz@gmail.com",
+        "id": 7
     }
 ]
