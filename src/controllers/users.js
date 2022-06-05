@@ -40,8 +40,13 @@ const LOGIN = (req, res) => {
     }
 }
 
+const REGISTER = (req, res) => {
+    let {first_name, }
+}
+
 
 export default {
     GET,
-    LOGIN
+    LOGIN,
+    REGISTER
 }
