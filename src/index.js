@@ -7,6 +7,8 @@ const app = express()
 
 app.use(express.json());
 app.use(cors());
+app.use(express.static('public'));
+
 
 app.use((error, req, res, next) => {
     if (error.status != 500) {
@@ -27,6 +29,5 @@ app.use((error, req, res, next) => {
 
     process.exit()
 })
-console.log(sha256("12345678"));
 
-app.listen(PORT, () => console.log(`server listening on ${PORT}`)); 
+app.listen(PORT, () => console.log(`server listening on http://localhost:${PORT}`)); 
