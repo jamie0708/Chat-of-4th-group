@@ -40,5 +40,14 @@
         "first_name": "Tracey",
         "password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
         "avatar": "https://reqrссes.in/img/faces/6-image.jpg"
+    },
+    {
+        "email": "aziz@gmail.com",
+        "first_name": "Al-Jaziz",
+        "password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
+        "avatar": {
+            "0": {}
+        },
+        "id": 7
     }
 ]

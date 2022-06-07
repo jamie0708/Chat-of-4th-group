@@ -14,6 +14,7 @@ app.use(usersRouter)
 
 app.use((error, req, res, next) => {
     if (error.status != 500) {
+        alert('Error: ' + error.message)
         return res.status(error.status).json({
             status: error.status,
             message: error.message
