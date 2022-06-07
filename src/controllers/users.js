@@ -48,6 +48,7 @@ const REGISTER = (req, res) => {
         
         req.body.id = users.length ? users.at(-1).id + 1 : 1
         req.body.password = sha256(req.body.password)
+        req.body.avatar = req.files.avatar
 
         let user = users.find(user => user.first_name == req.body.first_name)
 
