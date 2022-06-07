@@ -44,13 +44,12 @@ const LOGIN = (req, res) => {
 const REGISTER = (req, res) => {
     
     try {
-        let {first_name, email, password, avatar} = req.body
         let users = read('users')
         
         req.body.id = users.length ? users.at(-1).id + 1 : 1
-        password = sha256(password)
+        req.body.password = sha256(req.body.password)
 
-        let user = users.find(user => user.first_name == first_name)
+        let user = users.find(user => user.first_name == req.body.first_name)
 
         if(user){
             return next( new AuthrizationError(401, 'this username exists') )
@@ -63,7 +62,7 @@ const REGISTER = (req, res) => {
         res.status(201).json({
             status: 201,
             message: 'success',
-            token: jwt.sign({userId: req.body.userId}),
+            token: jwt.sign({id: req.body.id}),
             data: req.body  
         })
     } catch (error) {
