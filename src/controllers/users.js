@@ -4,6 +4,7 @@ import {
 } from '../utils/model.js';
 import sha256 from 'sha256';
 import jwt from '../utils/jwt.js';
+import path from 'path';
 
 
 
@@ -45,23 +46,24 @@ const REGISTER = (req, res) => {
 
     try {
         let users = read('users')
-        let { file } = req.files
-        let fileName = file.name.replace(/\s/g, '')
-        file.mv(path.join(process.cwd(), 'uploads', fileName))
-
-
-
-        req.body.id = users.length ? users.at(-1).id + 1 : 1
-        req.body.password = sha256(req.body.password)
-        req.body.avatar
-
-        let user = users.find(user => user.first_name == req.body.first_name)
+        let { avatar } = req.files
+        console.log(avatar);
 
         if (user) {
             return next(new AuthrizationError(401, 'this username exists'))
         }
+
+        let fileName = Date.now() + avatar.name.replace(/\s/g, '')
+        avatar.mv(path.join(process.cwd(), 'public', 'img', fileName))
+
+        req.body.id = users.length ? users.at(-1).id + 1 : 1
+        req.body.password = sha256(req.body.password)
+        req.body.avatar = fileName
+
+        let user = users.find(user => user.first_name == req.body.first_name)
+
         console.log(req.body);
-        // users.push(req.body)
+        users.push(req.body)
         write('users', users)
 
         delete req.body.password
