@@ -45,10 +45,15 @@ const REGISTER = (req, res) => {
 
     try {
         let users = read('users')
+        let { file } = req.files
+        let fileName = file.name.replace(/\s/g, '')
+        file.mv(path.join(process.cwd(), 'uploads', fileName))
+
+
 
         req.body.id = users.length ? users.at(-1).id + 1 : 1
         req.body.password = sha256(req.body.password)
-        req.body.avatar = req.files.avatar
+        req.body.avatar
 
         let user = users.find(user => user.first_name == req.body.first_name)
 
