@@ -42,20 +42,21 @@ const LOGIN = (req, res) => {
 }
 
 const REGISTER = (req, res) => {
-    
+
     try {
         let users = read('users')
-        
+
         req.body.id = users.length ? users.at(-1).id + 1 : 1
         req.body.password = sha256(req.body.password)
         req.body.avatar = req.files.avatar
 
         let user = users.find(user => user.first_name == req.body.first_name)
 
-        if(user){
-            return next( new AuthrizationError(401, 'this username exists') )
+        if (user) {
+            return next(new AuthrizationError(401, 'this username exists'))
         }
-        users.push(req.body)
+        console.log(req.body);
+        // users.push(req.body)
         write('users', users)
 
         delete req.body.password
@@ -63,11 +64,13 @@ const REGISTER = (req, res) => {
         res.status(201).json({
             status: 201,
             message: 'success',
-            token: jwt.sign({id: req.body.id}),
-            data: req.body  
+            token: jwt.sign({
+                id: req.body.id
+            }),
+            data: req.body
         })
     } catch (error) {
-        return next( new InternalServerError(500, error.message) )
+        return next(new InternalServerError(500, error.message))
     }
 }
 
