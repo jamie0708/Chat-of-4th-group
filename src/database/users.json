@@ -33,12 +33,5 @@
         "first_name": "Charles",
         "password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
         "avatar": "https://reqres.in/img/faces/5-image.jpg"
-    },
-    {
-        "id": 6,
-        "email": "tracey.ramos@reqres.in",
-        "first_name": "Tracey",
-        "password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
-        "avatar": "https://reqrссes.in/img/faces/6-image.jpg"
     }
 ]

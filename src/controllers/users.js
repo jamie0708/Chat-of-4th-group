@@ -48,6 +48,8 @@ const REGISTER = (req, res) => {
         let users = read('users')
         let { avatar } = req.files
         console.log(avatar);
+        
+        let user = users.find(user => user.first_name == req.body.first_name)
 
         if (user) {
             return next(new AuthrizationError(401, 'this username exists'))
@@ -55,12 +57,12 @@ const REGISTER = (req, res) => {
 
         let fileName = Date.now() + avatar.name.replace(/\s/g, '')
         avatar.mv(path.join(process.cwd(), 'public', 'img', fileName))
-
+        console.log("req body oldin");
         req.body.id = users.length ? users.at(-1).id + 1 : 1
         req.body.password = sha256(req.body.password)
         req.body.avatar = fileName
+        console.log("req body keyin");
 
-        let user = users.find(user => user.first_name == req.body.first_name)
 
         console.log(req.body);
         users.push(req.body)
