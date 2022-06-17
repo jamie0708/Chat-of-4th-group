@@ -1,37 +1,50 @@
-[
-    {
+[{
         "id": 1,
         "email": "george.bluth@reqres.in",
         "first_name": "George",
         "password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
-        "avatar": "https://reqres.in/img/faces/1-image.jpg"
+        "avatar": "1-image.jpg"
     },
     {
         "id": 2,
         "email": "janet.weaver@reqres.in",
         "first_name": "Janet",
         "password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
-        "avatar": "https://reqres.in/img/faces/2-image.jpg"
+        "avatar": "2-image.jpg"
     },
     {
         "id": 3,
         "email": "emma.wong@reqres.in",
         "first_name": "Emma",
         "password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
-        "avatar": "https://reqres.in/img/faces/3-image.jpg"
+        "avatar": "3-image.jpg"
     },
     {
         "id": 4,
         "email": "eve.holt@reqres.in",
         "first_name": "Eve",
         "password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
-        "avatar": "https://reqres.in/img/faces/4-image.jpg"
+        "avatar": "4-image.jpg"
     },
     {
         "id": 5,
         "email": "charles.morris@reqres.in",
         "first_name": "Charles",
         "password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
-        "avatar": "https://reqres.in/img/faces/5-image.jpg"
+        "avatar": "5-image.jpg"
+    },
+    {
+        "id": 6,
+        "email": "tracey.ramos@reqres.in",
+        "first_name": "Tracey",
+        "last_name": "Ramos",
+        "avatar": "6-image.jpg"
+    },
+    {
+        "email": "aziz@gmail.com",
+        "first_name": "Al-Jaziz",
+        "password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
+        "id": 7,
+        "avatar": "16552108260011201657-bigthumbnail.webp"
     }
 ]

@@ -5,6 +5,7 @@ import {
 import sha256 from 'sha256';
 import jwt from '../utils/jwt.js';
 import path from 'path';
+import { InternalServerError } from '../utils/errors.js';
 
 
 
@@ -57,11 +58,9 @@ const REGISTER = (req, res) => {
 
         let fileName = Date.now() + avatar.name.replace(/\s/g, '')
         avatar.mv(path.join(process.cwd(), 'public', 'img', fileName))
-        console.log("req body oldin");
         req.body.id = users.length ? users.at(-1).id + 1 : 1
         req.body.password = sha256(req.body.password)
-        req.body.avatar = fileName
-        console.log("req body keyin");
+        req.body.avatar = fileName  
 
 
         console.log(req.body);
@@ -81,10 +80,27 @@ const REGISTER = (req, res) => {
     } catch (error) {
         return next(new InternalServerError(500, error.message))
     }
+} 
+
+const PROFILE = (req, res) => {
+    try {
+        let users = read('users')
+        let userId = jwt.verify(req.headers.token)
+        console.log(req.headers.token);
+
+        let profile = users.find(user => user.id == userId.id)
+
+        console.log(profile);
+        return res.json(profile)
+
+    } catch (error) {
+        return next(new InternalServerError(500, error.message))
+    }
 }
 
 export default {
     GET,
     LOGIN,
-    REGISTER
+    REGISTER,
+    PROFILE
 }

@@ -2,6 +2,7 @@ import express from 'express';
 import fileUpload from 'express-fileupload'
 import cors from 'cors';
 import usersRouter from './routers/users.js'
+import path from 'path';
 
 const PORT = process.env.PORT || 7777;
 const app = express()
@@ -9,7 +10,7 @@ app.use(cors());
 
 app.use(express.json());
 app.use(fileUpload())
-app.use(express.static('public'));
+app.use(express.static(path.join(process.cwd(), 'public', 'img')));
 
 app.use(usersRouter)
 
